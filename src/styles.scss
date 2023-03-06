@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 0.925rem !important;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #031624 !important;
+  text-align: left;
+  background-color: #f7f8f9;
+}
