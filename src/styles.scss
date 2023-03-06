@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap-icons/font//bootstrap-icons.scss";
+
+// @import "~bootstrap-icons/font/bootstrap-icons.css";
+
 html,
 body {
   height: 100%;
@@ -11,7 +14,87 @@ body {
   font-size: 0.925rem !important;
   font-weight: 400;
   line-height: 1.5;
-  color: #031624 !important;
+  color: #0b0b0b !important;
   text-align: left;
   background-color: #f7f8f9;
+}
+
+//header Component
+
+header {
+  box-shadow: 0 5px 5px 0 rgba(1, 1, 1, 0.05);
+  position: fixed;
+  width: 100%;
+  /* height: auto; */
+  background: #fff;
+  z-index: 100;
+}
+
+.main-content-wrapper {
+  padding-top: 72px;
+}
+
+.navbar {
+  padding: 1rem;
+}
+
+.navbar-brand {
+  margin-right: 5rem;
+  font-size: initial;
+  line-height: 1;
+
+  img,
+  svg {
+    vertical-align: middle;
+    height: 50px;
+    width: 65px;
+  }
+}
+
+.navbar-nav a {
+  color: #2b2728;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar-nav a.active,
+.navbar-nav a:hover {
+  color: #ff4f5c;
+}
+
+//Footer Component
+footer {
+  border-top: 3px solid #ffe7e9;
+  padding: 15px 0;
+}
+
+.copyright-list {
+  padding: 0;
+  margin: 0;
+}
+.copyright-list li {
+  display: inline;
+  margin: 0px 10px 0 0;
+}
+
+.copyright-list li a {
+  color: #031d2a;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.925rem;
+  font-weight: 400;
+}
+
+.copyright-list li a:hover {
+  color: #ed535f;
+}
+
+.copyright-text {
+  margin: 0;
+  text-align: right;
+  color: #666666;
+}
+
+.copyright-text span {
+  color: #052240;
 }
