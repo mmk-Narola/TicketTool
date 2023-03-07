@@ -1,7 +1,7 @@
 <header>
     <div class="container">
         <nav class="navbar navbar-expand-md">
-            <a [routerLink]="['/']" class="navbar-brand logo">
+            <a [routerLink]="['/dashboard']" class="navbar-brand logo">
                 <img src="../../../assets/ticketTool.png" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -11,13 +11,13 @@
 
             <div class="collapse navbar-collapse" id="navbarText">
                 <div class="navbar-nav">
-                    <a routerLink=" " class="nav-item nav-link">Home</a>
-                    <a routerLink=" " class="nav-item nav-link">About Us</a>
-                    <a routerLink=" " class="nav-item nav-link">Service</a>
-                    <a routerLink=" " class="nav-item nav-link" tabindex="-1">Contact</a>
+                    <a routerLink=" " class="nav-item nav-link">Tickets</a>
+                    <a routerLink=" " class="nav-item nav-link">Employee</a>
+                    <a routerLink=" " class="nav-item nav-link">Department</a>
+                    <a routerLink=" " class="nav-item nav-link" tabindex="-1">Leaves</a>
                 </div>
                 <div class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <a class="nav-item nav-link">Login - Register</a>
+                    <a class="nav-item nav-link" routerLink="login">Login - Register</a>
                 </div>
             </div>
         </nav>

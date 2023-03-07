@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
-@import "../node_modules/bootstrap-icons/font//bootstrap-icons.scss";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 
 // @import "~bootstrap-icons/font/bootstrap-icons.css";
 
@@ -32,6 +32,7 @@ header {
 
 .main-content-wrapper {
   padding-top: 72px;
+  margin-bottom: 200px;
 }
 
 .navbar {
