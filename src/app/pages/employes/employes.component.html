@@ -12,9 +12,23 @@
                             <th>Name</th>
                             <th>Contact</th>
                             <th>EmailId</th>
+                            <th>Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr *ngFor="let item of allEmployeeList;let sr= index">
+                            <td>{{sr+1}}</td>
+                            <td>{{item.EmployeeName}}</td>
+                            <td>{{item.ContactNo}}</td>
+                            <td>{{item.EmailId}}</td>
+                            <td>{{item.Role}}</td>
+                            <td>
+                                <button class="btn btn-success btn-sm">Edit</button>&nbsp;
+                                <button class="btn btn-secondary btn-sm">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -25,63 +39,78 @@
                 Create New
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">Name</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Contact No</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">Email-Id</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Role</label>
-                        <select class="form-control">
-                            <option value="">Select Role</option>
-                            <option value="Employee">Employee</option>
-                            <option value="AdminDept">Admin Dept</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">User Name</label>
-                        <input type="text" class=" form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Password</label>
-                        <input type="text" class=" form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">Select Dept</label>
-                        <select id="" class="form-control">
-                            <option value="">Select Dept</option>
+                <form [formGroup]="createEmp" (ngSubmit)="onSaveEmployee()">
 
-                        </select>
+                    <div class="text-danger text-center mb-md-2" *ngIf="createEmp.invalid && isSubmit">
+                        All Form Field Are Required
                     </div>
-                    <div class="col-6">
-                        <label for="">Select Senior</label>
-                        <select class="form-control">
-                            <option value="">Select Senior</option>
-                        </select>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control" formControlName="EmployeeName">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Contact No</label>
+                            <input type="number" class="form-control" formControlName="ContactNo">
+                        </div>
                     </div>
-                </div>
-                <div class="row pt-3">
-                    <div class="col-6  text-end">
-                        <button class="btn btn-secondary btn-sm">Reset</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Email-Id</label>
+                            <input type="email" class="form-control" formControlName="EmailId">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Role</label>
+                            <select class="form-control" formControlName="Role">
+                                <option value="">Select Role</option>
+                                <option value="Employee">Employee</option>
+                                <option value="AdminDept">Admin Dept</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-6  text-left">
-                        <button class="btn btn-success btn-sm">Save Employee</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">User Name</label>
+                            <input type="text" class="form-control" formControlName="UserName">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" formControlName="Password">
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Select Dept</label>
+                            <select id="" class="form-control" formControlName="DeptId"
+                                (change)="onChangeDepartmentId($event)">
+                                <option value="">Select Dept</option>
+                                <option *ngFor="let item of departmentList" [value]="item.DeptId">{{item.DeptName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Select Senior</label>
+                            <select class="form-control" formControlName="ReportsTo">
+                                <option value="">Select Senior</option>
+                                <option *ngFor="let item of employeeList" [value]="item.EmployeeId">
+                                    {{item.EmployeeName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6  text-end">
+                            <button class="btn btn-secondary btn-sm" type="submit" (click)="onReset()">Reset</button>
+                        </div>
+                        <div class="col-6  text-left">
+                            <button class="btn btn-success btn-sm" type="submit">Save Employee</button>
+                            <!-- <button class="btn btn-success">
+                                <i class="bi bi-backspace-fill"></i>
+                            </button> -->
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

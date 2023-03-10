@@ -46,13 +46,18 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', JSON.stringify(res.Token));
       if (res.Role == 'Admin') {
         this.router.navigateByUrl('Employee');
-      } else if (res.Role == 'Empoyee') {
+      } else if (res.Role == 'Employee') {
         this.router.navigateByUrl('EmpTickets');
       } else if (res.Role == 'AdminDept') {
         this.router.navigateByUrl('DeptTickets');
       }
 
-      this.loginForm.reset();
+      this.reset();
     });
+  }
+
+  reset() {
+    this.isSubmit = false;
+    this.loginForm.reset();
   }
 }

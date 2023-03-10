@@ -12,7 +12,51 @@ export class UsersService {
 
   loginUser(details: any): Observable<any> {
     return this.http
-      .post('https://akbarapi.funplanetresort.in/api/MyRequest/Login', details)
+      .post(this.url + '/Login', details)
+      .pipe(catchError(this.handleError));
+  }
+
+  getDepartmentList(): Observable<any> {
+    return this.http
+      .get(this.url + '/GetDepartments')
+      .pipe(catchError(this.handleError));
+  }
+
+  getEmployeesListbyId(deptId: string): Observable<any> {
+    return this.http
+      .get(this.url + `/GetEmployeeByDeptId?id=${deptId}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  createEmploye(empDetails: any): Observable<any> {
+    return this.http.post(this.url + '/CreateEmployee', empDetails);
+  }
+
+  getAllEmployesList(): Observable<any> {
+    return this.http.get(this.url + '/GetEmployees');
+  }
+
+  createTicketReq(ticketObj): Observable<any> {
+    return this.http
+      .post(this.url + '/CreateRequestMaster', ticketObj)
+      .pipe(catchError(this.handleError));
+  }
+
+  GetAllRequestByEmployee(id: any) {
+    return this.http
+      .get(this.url + `/GetAllRequestByEmployee?id=${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getAllTickets(): Observable<any> {
+    return this.http
+      .get(this.url + '/GetAllRequest')
+      .pipe(catchError(this.handleError));
+  }
+
+  getAssignedTicketBYEmpId(id: any): Observable<any> {
+    return this.http
+      .get(this.url + `/GetAssignedRequestByUserId?userid=${id}`)
       .pipe(catchError(this.handleError));
   }
 
